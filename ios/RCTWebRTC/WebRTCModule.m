@@ -42,6 +42,8 @@
                         decoderFactory:(nullable id<RTCVideoDecoderFactory>)decoderFactory {
     self = [super init];
     if (self) {
+        NSDictionary *fieldTrials = @{@"WebRTC-Network-UseNWPathMonitor": @"Enabled"};
+        RTCInitFieldTrialDictionary(fieldTrials);
         if (encoderFactory == nil) {
             encoderFactory = [[RTCDefaultVideoEncoderFactory alloc] init];
         }
