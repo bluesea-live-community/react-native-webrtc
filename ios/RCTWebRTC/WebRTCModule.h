@@ -8,6 +8,7 @@
 #import <WebRTC/RTCAudioTrack.h>
 #import <WebRTC/RTCDefaultVideoDecoderFactory.h>
 #import <WebRTC/RTCDefaultVideoEncoderFactory.h>
+#import <WebRTC/RTCVideoEncoderFactorySimulcast.h>
 #import <WebRTC/RTCMediaStream.h>
 #import <WebRTC/RTCPeerConnection.h>
 #import <WebRTC/RTCPeerConnectionFactory.h>

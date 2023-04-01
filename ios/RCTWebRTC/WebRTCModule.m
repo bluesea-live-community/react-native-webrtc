@@ -46,6 +46,7 @@
         RTCInitFieldTrialDictionary(fieldTrials);
         if (encoderFactory == nil) {
             encoderFactory = [[RTCDefaultVideoEncoderFactory alloc] init];
+            encoderFactory = [[RTCVideoEncoderFactorySimulcast alloc] initWithPrimary:encoderFactory fallback:encoderFactory];
         }
         if (decoderFactory == nil) {
             decoderFactory = [[RTCDefaultVideoDecoderFactory alloc] init];
