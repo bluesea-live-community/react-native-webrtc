@@ -71,11 +71,13 @@ async function download(url, filePath) {
 
     const androidUrl = builds['android'];
 
-    items.push({
-        url: androidUrl,
-        dstFileName: path.basename(androidUrl),
-        dstDir: `${__dirname}/../android/libs/`
-    });
+    if (androidUrl) {
+        items.push({
+            url: androidUrl,
+            dstFileName: path.basename(androidUrl),
+            dstDir: `${__dirname}/../android/libs/`
+        });
+    }
 
     // Download them all!
     //

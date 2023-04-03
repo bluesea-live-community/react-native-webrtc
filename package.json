@@ -1,6 +1,6 @@
 {
   "name": "bluesea-react-native-webrtc",
-  "version": "106.0.7-alpha.2",
+  "version": "106.0.7-alpha.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-native-webrtc/react-native-webrtc.git"
@@ -65,6 +65,5 @@
     ]
   },
   "webrtc-builds": {
-    "android": "https://github.com/jitsi/webrtc/releases/download/v106.0.1/android-webrtc.zip"
   }
 }
