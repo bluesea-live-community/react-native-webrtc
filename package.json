@@ -1,13 +1,13 @@
 {
-  "name": "react-native-webrtc",
+  "name": "bluesea-react-native-webrtc",
   "version": "111.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-native-webrtc/react-native-webrtc.git"
+    "url": "git+https://github.com/bluesea-live-community/react-native-webrtc.git"
   },
   "description": "WebRTC for React Native",
   "license": "MIT",
-  "homepage": "https://github.com/react-native-webrtc/react-native-webrtc",
+  "homepage": "https://github.com/bluesea-live-community/react-native-webrtc",
   "keywords": [
     "react-component",
     "react-native",
@@ -35,7 +35,7 @@
     "format": "clang-format -i ios/RCTWebRTC/* android/src/main/java/com/oney/WebRTCModule/*.java android/src/main/java/com/oney/WebRTCModule/videoEffects/*.java android/src/main/java/com/oney/WebRTCModule/webrtcutils/*.java"
   },
   "bugs": {
-    "url": "https://github.com/react-native-webrtc/react-native-webrtc/issues"
+    "url": "https://github.com/bluesea-live-community/react-native-webrtc/issues"
   },
   "devDependencies": {
     "@types/debug": "4.1.7",
