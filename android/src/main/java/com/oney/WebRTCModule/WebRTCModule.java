@@ -309,6 +309,8 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
                         break;
                 }
             }
+        } else { // default enable GATHER_CONTINUALLY for fast reconnect when network changed
+            conf.continualGatheringPolicy = PeerConnection.ContinualGatheringPolicy.GATHER_CONTINUALLY;
         }
 
         // audioJitterBufferMaxPackets (private api)

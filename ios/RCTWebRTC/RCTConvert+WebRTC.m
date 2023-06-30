@@ -94,6 +94,9 @@
 
     config.sdpSemantics = RTCSdpSemanticsUnifiedPlan;
 
+    // default enable GATHER_CONTINUALLY for fast reconnect when network changed
+    config.continualGatheringPolicy = RTCContinualGatheringPolicyGatherContinually;
+
     if (!json) {
         return config;
     }
