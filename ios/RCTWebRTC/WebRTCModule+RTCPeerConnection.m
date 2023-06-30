@@ -77,6 +77,7 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(peerConnectionInit
                                        : (RTCConfiguration *)configuration objectID
                                        : (nonnull NSNumber *)objectID) {
     dispatch_sync(self.workerQueue, ^{
+        configuration.continualGatheringPolicy = RTCContinualGatheringPolicyGatherContinually;
         NSDictionary *optionalConstraints = @{@"DtlsSrtpKeyAgreement" : @"true"};
         RTCMediaConstraints *constraints =
             [[RTCMediaConstraints alloc] initWithMandatoryConstraints:nil optionalConstraints:optionalConstraints];
