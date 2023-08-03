@@ -233,11 +233,17 @@ class GetUserMediaImpl {
         }
     }
 
-    void switchCamera(String trackId) {
+    void switchCamera(String trackId, boolean front, boolean mirror) {
+        if (mirror) {
+            setVideoEffect(trackId, "mirror");
+        } else {
+            setVideoEffect(trackId, null);
+        }
+
         TrackPrivate track = tracks.get(trackId);
         if (track != null && track.videoCaptureController instanceof CameraCaptureController) {
             CameraCaptureController cameraCaptureController = (CameraCaptureController) track.videoCaptureController;
-            cameraCaptureController.switchCamera();
+            cameraCaptureController.switchCamera(front);
         }
     }
 

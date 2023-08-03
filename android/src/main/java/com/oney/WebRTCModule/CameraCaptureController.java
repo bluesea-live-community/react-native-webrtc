@@ -37,7 +37,11 @@ public class CameraCaptureController extends AbstractVideoCaptureController {
         this.constraints = constraints;
     }
 
-    public void switchCamera() {
+    public void switchCamera(boolean front) {
+        if (front == isFrontFacing) {
+            return;
+        }
+
         if (videoCapturer instanceof CameraVideoCapturer) {
             CameraVideoCapturer capturer = (CameraVideoCapturer) videoCapturer;
             String[] deviceNames = cameraEnumerator.getDeviceNames();
@@ -66,7 +70,7 @@ public class CameraCaptureController extends AbstractVideoCaptureController {
 
             // If we are here the device has more than 2 cameras. Cycle through them
             // and switch to the first one of the desired facing mode.
-            switchCamera(!isFrontFacing, deviceCount);
+            switchCamera(front, deviceCount);
         }
     }
 

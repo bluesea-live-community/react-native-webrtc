@@ -20,6 +20,8 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.oney.WebRTCModule.videoEffects.ProcessorProvider;
+import com.oney.WebRTCModule.videoEffects.VideoFrameMirrorProcessorFactory;
 import com.oney.WebRTCModule.webrtcutils.H264AndSoftwareVideoDecoderFactory;
 import com.oney.WebRTCModule.webrtcutils.H264AndSoftwareVideoEncoderFactory;
 
@@ -54,6 +56,8 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
 
         mPeerConnectionObservers = new SparseArray<>();
         localStreams = new HashMap<>();
+
+        ProcessorProvider.addProcessor("mirror", new VideoFrameMirrorProcessorFactory());
 
         WebRTCModuleOptions options = WebRTCModuleOptions.getInstance();
 
@@ -803,11 +807,11 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void mediaStreamTrackSwitchCamera(String id) {
+    public void mediaStreamTrackSwitchCamera(String id, boolean front, boolean mirror) {
         ThreadUtils.runOnExecutor(() -> {
             MediaStreamTrack track = getLocalTrack(id);
             if (track != null) {
-                getUserMediaImpl.switchCamera(id);
+                getUserMediaImpl.switchCamera(id, front, mirror);
             }
         });
     }
