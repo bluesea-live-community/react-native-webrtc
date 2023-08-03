@@ -130,12 +130,15 @@
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
 }
 
-- (void)switchCamera {
-    self.usingFrontCamera = !self.usingFrontCamera;
-    self.deviceId = nil;
-    self.device = nil;
+- (void)switchCamera:(BOOL) usingFrontCamera mirror:(BOOL) mirror {
+    if (self.usingFrontCamera != usingFrontCamera || self.mirror != mirror) {
+        self.usingFrontCamera = usingFrontCamera;
+        self.mirror = mirror;
+        self.deviceId = nil;
+        self.device = nil;
 
-    [self startCapture];
+        [self startCapture];
+    }
 }
 
 #pragma mark NSKeyValueObserving

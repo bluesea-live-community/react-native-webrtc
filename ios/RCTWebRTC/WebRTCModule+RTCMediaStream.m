@@ -361,11 +361,11 @@ RCT_EXPORT_METHOD(mediaStreamTrackSetEnabled : (nonnull NSNumber *)pcId : (nonnu
     }
 }
 
-RCT_EXPORT_METHOD(mediaStreamTrackSwitchCamera : (nonnull NSString *)trackID) {
+RCT_EXPORT_METHOD(mediaStreamTrackSwitchCamera : (nonnull NSString *)trackID front:(BOOL)front mirror:(BOOL)mirror) {
     RTCMediaStreamTrack *track = self.localTracks[trackID];
     if (track) {
         RTCVideoTrack *videoTrack = (RTCVideoTrack *)track;
-        [(VideoCaptureController *)videoTrack.captureController switchCamera];
+        [(VideoCaptureController *)videoTrack.captureController switchCamera: front mirror:mirror];
     }
 }
 

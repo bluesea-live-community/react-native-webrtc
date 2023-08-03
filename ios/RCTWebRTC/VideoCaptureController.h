@@ -12,6 +12,6 @@
 - (instancetype)initWithCapturer:(RTCCameraVideoCapturer *)capturer andConstraints:(NSDictionary *)constraints;
 - (void)startCapture;
 - (void)stopCapture;
-- (void)switchCamera;
+- (void)switchCamera:(BOOL) usingFrontCamera mirror:(BOOL) mirror;
 
 @end

@@ -83,7 +83,7 @@ class MediaStreamTrack extends defineCustomEventTarget(...MEDIA_STREAM_TRACK_EVE
      * This is how the reference application (AppRTCMobile) implements camera
      * switching.
      */
-    _switchCamera(): void {
+    _switchCamera(front: boolean, mirror: boolean): void {
         if (this.remote) {
             throw new Error('Not implemented for remote tracks');
         }
@@ -92,7 +92,7 @@ class MediaStreamTrack extends defineCustomEventTarget(...MEDIA_STREAM_TRACK_EVE
             throw new Error('Only implemented for video tracks');
         }
 
-        WebRTCModule.mediaStreamTrackSwitchCamera(this.id);
+        WebRTCModule.mediaStreamTrackSwitchCamera(this.id, front, mirror);
     }
 
     _setVideoEffect(name:string) {
