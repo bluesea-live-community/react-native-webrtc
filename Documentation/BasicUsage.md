@@ -69,7 +69,8 @@ let mediaConstraints = {
 	audio: true,
 	video: {
 		frameRate: 30,
-		facingMode: 'user'
+		facingMode: 'user',
+		mirror: true
 	}
 };
 ```

@@ -78,7 +78,8 @@ function normalizeMediaConstraints(constraints, mediaType) {
                 facingMode: extractString(constraints, 'facingMode'),
                 frameRate: extractNumber(constraints, 'frameRate'),
                 height: extractNumber(constraints, 'height'),
-                width: extractNumber(constraints, 'width')
+                width: extractNumber(constraints, 'width'),
+                mirror: constraints.mirror
             };
 
             if (!c.deviceId) {

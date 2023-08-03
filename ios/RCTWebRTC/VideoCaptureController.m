@@ -14,6 +14,7 @@
 @property(nonatomic, assign) int width;
 @property(nonatomic, assign) int height;
 @property(nonatomic, assign) int frameRate;
+@property(nonatomic, assign) BOOL mirror;
 
 @end
 
@@ -32,6 +33,7 @@
         self.width = [constraints[@"width"] intValue];
         self.height = [constraints[@"height"] intValue];
         self.frameRate = [constraints[@"frameRate"] intValue];
+        self.mirror = [constraints[@"mirror"] boolValue];
 
         id facingMode = constraints[@"facingMode"];
 
@@ -94,6 +96,7 @@
     [self.capturer startCaptureWithDevice:self.device
                                    format:format
                                       fps:self.frameRate
+                                   mirror:self.mirror
                         completionHandler:^(NSError *err) {
                             if (err) {
                                 RCTLogError(@"[VideoCaptureController] Error starting capture: %@", err);
