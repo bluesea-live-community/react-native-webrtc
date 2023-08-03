@@ -1,8 +1,10 @@
 package com.oney.WebRTCModule.videoEffects;
 
+import android.graphics.Matrix;
 import android.util.Log;
 
 import org.webrtc.SurfaceTextureHelper;
+import org.webrtc.TextureBufferImpl;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoFrame.Buffer;
 import org.webrtc.VideoFrame.I420Buffer;
@@ -12,6 +14,14 @@ import java.nio.ByteBuffer;
 public class VideoFrameMirrorProcessor implements VideoFrameProcessor {
   @Override
   public VideoFrame process(VideoFrame frame, SurfaceTextureHelper textureHelper) {
+    Buffer buffer = frame.getBuffer();
+    if (buffer instanceof TextureBufferImpl) {
+      TextureBufferImpl buf2 = (TextureBufferImpl) buffer;
+      Matrix matrix = buf2.getTransformMatrix();
+      TextureBufferImpl mirrorBuf = buf2.applyTransformMatrix(matrix, buf2.getUnscaledWidth(), buf2.getUnscaledHeight());
+      return new VideoFrame(mirrorBuf, frame.getRotation(), frame.getTimestampNs());
+    }
+
     I420Buffer i420Buffer = frame.getBuffer().toI420();
     if (i420Buffer == null) {
       return null;
